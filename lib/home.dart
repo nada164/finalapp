@@ -3,12 +3,13 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter_tflite/flutter_tflite.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'detect_screen.dart';
 
 import 'models.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -26,8 +27,9 @@ class _HomePageState extends State<HomePage> {
   loadModel(model) async {
     String? res;
     res = await Tflite.loadModel(
-        model: "assets/ssd_mobilenet.tflite",
-        labels: "assets/ssd_mobilenet.txt");
+      model: "assets/ssd_mobilenet.tflite",
+      labels: "assets/ssd_mobilenet.txt",
+    );
   }
 
   onSelect(model) {
@@ -49,12 +51,36 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/2.jpg"), // Replace with your image asset
+            fit: BoxFit.fill,
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Flutter App used to view a 3d model\n'
+                    'To continue ? Press the button', // Replace with your desired text
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(height: 20),
             ElevatedButton(
-              child: const Text(ssd),
+              child: const Text(ssd,
+              style: TextStyle(
+                  color: Colors.brown
+              ),
+              ),
               onPressed: () => onSelect(ssd),
             ),
           ],

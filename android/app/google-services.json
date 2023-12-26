@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "688033894735",
+    "project_id": "dappfinal-899fc",
+    "storage_bucket": "dappfinal-899fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688033894735:android:1c6615fd6e638052bfb53a",
+        "android_client_info": {
+          "package_name": "com.example.yourpackage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc1PTWlO9-q-ZIi53uvArR3EOKY4iDnM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

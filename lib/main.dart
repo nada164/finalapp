@@ -1,27 +1,33 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
-import 'home.dart';
-
-late List<CameraDescription> cameras;
+import 'package:project/auth.dart';
+import 'package:project/signinScreen.dart';
+import 'package:project/signup.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:project/firebase_options.dart';
 
 Future<void> main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+ );
+ runApp( MyAppp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MyAppp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'tflite real-time detection',
-      theme: ThemeData(
-        brightness: Brightness.dark,
-      ),
-      home: const HomePage(),
-    );
+      debugShowCheckedModeBanner: false,
+      initialRoute:'/',
+      routes: {
+        
+        '/':(context) => const Auth(),
+        '/signup':(context) => SignScreen(),
+        '/siginScreen':(context) => SigninScreen(),
+        //'/camerapage':(context) =>  Mycamera(),
+        
+     },
+      );
+
   }
 }
